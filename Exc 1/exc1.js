@@ -1,23 +1,37 @@
-let peso = parseFloat(prompt("Informe o seu peso no formato 1.00 :"));
-let altura = parseFloat(prompt("Informe a sua altura em Kg:"));
+function calcularIMC() {
+    let peso = parseFloat(prompt("Digite seu peso (kg):"));
+    let altura = parseFloat(prompt("Digite sua altura (m):"));
+    let idade = parseInt(prompt("Digite sua idade:"));
+    
+    if (isNaN(peso) || isNaN(altura) || isNaN(idade) || peso <= 0 || altura <= 0 || idade <= 0) {
+        alert("Por favor, insira valores válidos.");
+        return;
+    }
+    
+    let imc = peso / (altura * altura);
+    let classificacao = "";
+    
+    if (idade > 65) {
+        imc -= 1; 
+    } else if (idade < 18) {
+        imc += 1; 
+    }
+    
+    if (imc < 18.5) {
+        classificacao = "Abaixo do Peso";
+    } else if (imc < 24.9) {
+        classificacao = "Normal";
+    } else if (imc < 29.9) {
+        classificacao = "Sobrepeso";
+    } else if (imc < 34.9) {
+        classificacao = "Obesidade Grau I";
+    } else if (imc < 39.9) {
+        classificacao = "Obesidade Grau II";
+    } else {
+        classificacao = "Obesidade Grau III (Mórbida)";
+    }
+    
+    alert(`Seu IMC é ${imc.toFixed(2)}. Classificação: ${classificacao}`);
+}
 
-const imc = peso / Math.pow(altura, 2);
-
-if (imc < 18.5) {
-    console.log("Abaixo do Peso!");
-} 
-else if (imc >= 18.5 && imc <= 24.99) {
-    console.log("Eutrófico!");
-} 
-else if (imc >= 25 && imc <= 29.99) {
-    console.log("Sobrepeso!");
-}
-else if (imc >= 30 && imc <= 34.99) {
-    console.log("Obesidade Grau 1!");
-}
-else if (imc >= 35 && imc <= 39.99) {
-    console.log("Obesidade Grau 2!");
-}
-else if (imc >= 40) {
-    console.log("Obesidade Grau 3!");
-}
+calcularIMC();

@@ -1,21 +1,26 @@
+function validarLados(lado) {
+    let erros = [];
 
-function validarlados(lados)
-let erros[]
+    if (isNaN(lado) || parseFloat(lado) <= 0) {
+        erros.push("Os lados devem ser valores positivos!");
+    }
 
-if(parseFloat(lados) <0 ){
-    erros.push("os lados tem que ser positivos !");
+    return erros;
 }
 
-if()
+let somaLados = 0; 
 
+for (let i = 1; i <= 3; i++) {
+    let lado = parseFloat(prompt(`Digite o lado ${i}:`)); 
 
+    let erros = validarLados(lado); 
 
-return erros;
-
-let lados[]
-for(lados i=0; i<3; i++){
-    lados.push(prompt(`Digite os lados ${i + 1}:`));
+    if (erros.length > 0) {
+        console.log(` Erro no lado ${i}:`);
+        erros.forEach(erro => console.log(`- ${erro}`));
+    } else {
+        somaLados += lado; 
+    }
 }
 
-
-
+console.log(`✅ A soma dos lados internos é: ${somaLados}`);
