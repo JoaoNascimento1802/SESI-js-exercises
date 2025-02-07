@@ -23,4 +23,4 @@ for (let i = 1; i <= 3; i++) {
     }
 }
 
-console.log(`✅ A soma dos lados internos é: ${somaLados}`);
+console.log(` A soma dos lados internos é: ${somaLados}`);
