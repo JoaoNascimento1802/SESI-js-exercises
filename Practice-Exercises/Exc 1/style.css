@@ -1,0 +1,14 @@
+body{
+    margin: 0px;
+}
+
+#title{
+    margin-left: 40%;
+}
+
+#button{
+    margin-left: 43%;
+    background-color: aqua;
+    border-radius: 20px;    
+    cursor: pointer;
+}
